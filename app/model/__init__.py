@@ -1,1 +1,1 @@
-__all__ = ['Category', 'Item']
+__all__ = ['Category', 'Item', 'Receipt']

@@ -1,6 +1,6 @@
 from sqlalchemy.dialects.mysql import BIGINT, VARCHAR
-
 from app import db
+
 class Category(db.Model):
     __tablename__ = 'Category'
     __table_args__ = {

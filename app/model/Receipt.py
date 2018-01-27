@@ -1,11 +1,11 @@
-from sqlalchemy.dialects.mysql import BIGINT, VARCHAR, INTEGER
+from sqlalchemy.dialects.mysql import BIGINT, VARCHAR, INTEGER, TIMESTAMP
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 
 from app import db
 
-class Item(db.Model):
-    __tablename__ = 'Item'
+class Receipt(db.Model):
+    __tablename__ = 'Receipt'
     __table_args__ = {
         'mysql_engine': 'InnoDB',
         'mysql_charset': 'utf8',
@@ -18,7 +18,7 @@ class Item(db.Model):
         index=True
     )
 
-    name = db.Column(
+    storeName = db.Column(
         VARCHAR(128)
     )
 
@@ -26,6 +26,13 @@ class Item(db.Model):
         INTEGER(10)
     )
 
+    paymentDate = db.Column(
+        TIMESTAMP
+    )
+
+    user = db.Column(
+        VARCHAR(128)
+    )
 
     categoryId = db.Column(
         BIGINT(20, unsigned=True),
